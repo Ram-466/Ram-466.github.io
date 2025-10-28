@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ram Podapati - Portfolio</title>
+    <link rel="stylesheet" href="css/portfolioo.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header (sticky) -->
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="#" class="logo">Ram<span> Podapati</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero reveal reveal-load">
+        <h1>Hi, I’m <span class="highlight">Ram Podapati</span></h1>
+        <h3>Aspiring Machine Learning Engineer</h3>
+        <p class="quote">“Turning data into insights, algorithms into solutions, and ideas into intelligent systems that
+            make a difference.”</p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="#contact" class="btn-secondary">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about section">
+        <h2 class="reveal">About Me</h2>
+        <p class="reveal" style="--d:0.05s">
+            I’m a passionate Machine Learning enthusiast with a strong foundation in Python, data analysis, and AI
+            technologies.
+            I love solving complex problems through innovative algorithms and creating intelligent systems that can make
+            a real-world impact.
+        </p>
+
+        <div class="skills">
+            <div class="skill-card reveal" style="--d:0.0s">
+                <i class="fa-solid fa-brain"></i>
+                <h3>Machine Learning</h3>
+                <p>TensorFlow, PyTorch, Scikit-learn</p>
+            </div>
+            <div class="skill-card reveal" style="--d:0.05s">
+                <i class="fa-solid fa-code"></i>
+                <h3>Programming</h3>
+                <p>Python, HTML, CSS, SQL</p>
+            </div>
+            <div class="skill-card reveal" style="--d:0.1s">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Data Analysis</h3>
+                <p>Pandas, NumPy, Matplotlib</p>
+            </div>
+            <div class="skill-card reveal" style="--d:0.15s">
+                <i class="fa-solid fa-cloud"></i>
+                <h3>Cloud & Tools</h3>
+                <p>AWS, Docker, Git, Jupyter</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects section">
+        <h2 class="reveal">Featured Projects</h2>
+        <p class="reveal" style="--d:0.05s">Some of my recent work in machine learning and data science</p>
+
+        <div class="project-grid">
+            <article class="project-card reveal" style="--d:0.0s">
+                <img src="images/predictive-model.png" alt="Predictive model" />
+                <h3>Predictive Analytics Model</h3>
+                <p>Built and deployed a machine learning model to predict key outcomes using advanced feature
+                    engineering and ensemble learning techniques for real-world analytics.</p>
+            </article>
+
+            <article class="project-card reveal" style="--d:0.05s">
+                <img src="images/computer-vision.jpg" alt="Computer vision system" />
+                <h3>Computer Vision System</h3>
+                <p>Designed and trained an enhanced ESRGAN-based image super-resolution system to improve image clarity
+                    and reduce visual artifacts, ensuring high-fidelity results.</p>
+            </article>
+
+            <article class="project-card reveal" style="--d:0.1s">
+                <img src="images/nlp-sentiment-analyzer.png" alt="NLP sentiment analyzer" />
+                <h3>NLP Sentiment Analyzer</h3>
+                <p>Developed an NLP solution leveraging transformer models to analyze and classify sentiments from
+                    social data, enabling better insight extraction and engagement tracking.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact section">
+        <h2 class="reveal">Contact Me</h2>
+        <p class="reveal" style="--d:0.05s">If you'd like to collaborate, feel free to reach out!</p>
+        <div class="contact-links">
+            <a class="reveal" style="--d:0.0s" href="mailto:bhragavram466@gmail.com"><i
+                    class="fa-solid fa-envelope"></i>
+                Email</a>
+            <a class="reveal" style="--d:0.05s" href="https://github.com/Ram-466" target="_blank"><i
+                    class="fa-brands fa-github"></i> GitHub</a>
+            <a class="reveal" style="--d:0.1s" href="https://linkedin.com/in/ram-chowdary" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Ram Podapati. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts: scroll reveal + sticky shadow + nav toggle + scrollspy -->
+    <script>
+        // Mobile nav
+        const toggle = document.querySelector('.nav-toggle');
+        const links = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+        // Header shadow on scroll
+        const header = document.querySelector('.site-header');
+        const onScroll = () => {
+            header.classList.toggle('scrolled', window.scrollY > 10);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Scroll reveal
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('in');
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        } else {
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                const id = a.getAttribute('href');
+                const el = document.querySelector(id);
+                if (!el) return;
+                e.preventDefault();
+                const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+                links.classList.remove('open');
+            });
+        });
+
+        // Scrollspy: highlight active link
+        const sections = [...document.querySelectorAll('.section')];
+        const navLinks = [...document.querySelectorAll('.nav-link')];
+        const spy = () => {
+            const pos = window.scrollY + 120;
+            let current = sections[0].id;
+            sections.forEach(s => {
+                if (pos >= s.offsetTop) current = s.id;
+            });
+            navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+        };
+        spy();
+        window.addEventListener('scroll', spy, { passive: true });
+    </script>
+</body>
+
+</html>
