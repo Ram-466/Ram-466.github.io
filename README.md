@@ -24,8 +24,7 @@ This portfolio highlights:
 
 ## 📨 Contact
 Feel free to reach out for collaborations or questions.  
-**Email:** your-email@example.com  
-**LinkedIn:** [linkedin.com/in/ramchowdary](https://linkedin.com/in/ramchowdary) *(optional)*
+**Email:** bhargavram466@gmail.com  
 
 ---
 
